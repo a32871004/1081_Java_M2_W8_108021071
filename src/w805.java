@@ -3,28 +3,22 @@ import java.util.Scanner;
 public class w805 {
     public static void main(String[] args) {
         Scanner sn = new Scanner(System.in);
-        int a =sn.nextInt();
-        int sum=0,cd;
-        boolean flag=true;
-        for (int i=2;i<=a;i++){
-            cd=i;
-            for (;cd!=1;){
-                if (cd%2==0){
-                    cd/=2;
-                }
-                else if(cd%3==0){
-                    cd/=3;
-                }
-                else if (cd%5==0){
-                    cd/=5;
-                }
-                else {
-                    flag=false;
-                    break;
-                }
+        int n =sn.nextInt();
+        int sum=0;
+        for (int i=2;i<=n;i++){
+            int j=i;
+            while (j%2==0){
+                j/=2;
             }
-            if(flag)sum+=i;
-            flag=true;
+            while (j%3==0){
+                j/=3;
+            }
+            while (j%5==0){
+                j/=5;
+            }
+            if(j==1){
+                sum+=i;
+            }
         }
         System.out.println(sum);
     }
